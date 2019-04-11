@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+  <view wx:if="{{boxNumber}}" class="box-num">唾液盒编号：{{boxNumber}}</view>
+  <view wx:if="{{boxNumber}}" class="box-tips">通过面对面扫码的方式，你可以将本唾液盒的检测结果分享给家人或朋友</view>
+  <view class="qrcode-wrap" wx:if="{{hasQrcode}}">
+    <canvas
+      class="qrcode"
+      canvas-id="canvas"
+      bindtap="handleRefreshQrcode"/>
+    <view bindtap="handleRefreshQrcode" class="qrcode-tips">点击刷新分享码</view>
+  </view>
+</view>

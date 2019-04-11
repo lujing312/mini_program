@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="info">
+    <view class="main" bindtap="handleGotoDetail">
+      <view class="name">{{nickName}}</view>
+      <view class="num">唾液盒编号：{{boxNumber}}</view>
+    </view>
+    <text class="iconfont icon-right-arrow"/>
+  </view>
+  <view class="list-wrap">
+    <template name="active">
+      <view class="left">
+        <image class="img active-img" src="{{icon}}" />
+        <view class="title active-title">{{statusName}}</view>
+      </view>
+      <view class="checkbox">
+        <text class="iconfont icon-selected selected"></text>
+      </view>
+      <view class="tip-msg errmsg" wx:if="{{errMsg}}">{{errMsg}}</view>
+      <view class="tip-msg waybill" wx:if="{{!errMsg&&message}}">{{message}}</view>
+    </template>
+    <template name="normal">
+      <view class="left">
+        <image class="img normal-img" src="{{icon}}" />
+        <view class="title normal-title">{{statusName}}</view>
+      </view>
+      <view class="checkbox">
+        <text class="iconfont icon-unselected unselected"></text>
+      </view>
+    </template>
+    <view 
+      class="list-item"
+      wx:for="{{processList}}"
+      wx:for-index="pIdx"
+      wx:for-item="pItem"
+      wx:key="{{pIdx}}"
+    >
+      <template data="{{...pItem}}" is="{{pItem.overStep==1 ? 'active' : 'normal'}}" />
+    </view>
+  </view>
+</view>

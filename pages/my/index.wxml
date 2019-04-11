@@ -1,0 +1,77 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="user-wrap" wx:if="{{isLogin}}">
+    <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+    <view class="username">{{userInfo.nickName}}</view>
+  </view>
+  <view class="user-wrap" wx:if="{{!isLogin}}">
+    <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">登录/注册</button>
+  </view>
+  <view class="my-wrap" wx:if="{{isLogin}}">
+    <view class="my-item" bindtap="handleBindBox">
+      <text class="iconfont icon-scan-qrcode icon-size"/>
+      <text class="my-item-title">绑定唾液盒</text>
+      <text class="my-right-icon iconfont icon-right-arrow"/>
+    </view>
+     <view class="my-item" bindtap="handleOpenPage" data-path="/pages/geneBox/return/index">
+      <text class="iconfont icon-return icon-size"/>
+      <text class="my-item-title">回寄唾液盒</text>
+      <text class="my-right-icon iconfont icon-right-arrow"/>
+    </view>
+    <view class="my-item" bindtap="handleOpenPage" data-path="/pages/share/index">
+      <text class="iconfont icon-share-qrcode icon-size" />
+      <text class="my-item-title">分享检测报告</text>
+      <text class="my-right-icon iconfont icon-right-arrow"/>
+    </view>
+      <view class="my-item" bindtap="handleOpenPage" data-path="/pages/geneBox/list/index">
+      <text class="iconfont icon-genebox icon-size"/>
+      <text class="my-item-title">我的基因宝</text>
+      <text class="my-right-icon iconfont icon-right-arrow"/>
+    </view>
+    <view class="my-item" bindtap="handleOpenPage" data-path="/pages/order/list/index">
+      <text class="iconfont icon-order icon-size"/>
+      <text class="my-item-title">订单信息</text>
+      <text class="my-right-icon iconfont icon-right-arrow"/>
+    </view>
+    <view class="my-item" bindtap="handleOpenPage" data-path="/pages/coupon/list/index">
+      <text class="iconfont icon-coupon icon-size"/>
+      <text class="my-item-title">优惠券</text>
+      <text class="my-right-icon iconfont icon-right-arrow"/>
+    </view>
+    <view class="my-item" bindtap="handleOpenPage" data-path="/pages/message/list/index">
+      <text class="iconfont icon-message icon-size"/>
+      <text class="my-item-title">通知消息</text>
+      <view class="my-item-right">
+        <text wx:if="unreadMsgCount>0" class="unread-msg">{{unreadMsgCount}}</text>
+        <text class="iconfont icon-right-arrow"/>
+      </view>
+    </view>
+    <view class="my-item" bindtap="handleOpenPage" data-path="/pages/address/list/index">
+      <text class="iconfont icon-address icon-size"/>
+      <text class="my-item-title">地址管理</text>
+      <text class="my-right-icon iconfont icon-right-arrow"/>
+    </view>
+    <view class="my-item" bindtap="handleContact">
+      <text class="iconfont icon-feedback icon-size"/>
+      <text class="my-item-title">基因小助手</text>
+      <text class="my-right-icon iconfont icon-right-arrow"/>
+    </view>
+    <view class="my-item" bindtap="handleOpenPage" data-path="/pages/about/index">
+      <text class="iconfont icon-setting icon-size"/>
+      <text class="my-item-title">关于我们</text>
+      <text class="my-right-icon iconfont icon-right-arrow"/>
+    </view>
+  </view>
+  <view class="my-wrap" wx:if="{{!isLogin}}">
+    <view class="my-item" bindtap="handleContact">
+      <text class="iconfont icon-feedback icon-size"/>
+      <text class="my-item-title">我的基因小助手</text>
+      <text class="my-right-icon iconfont icon-right-arrow"/>
+    </view>
+    <view class="my-item" bindtap="handleOpenPage" data-path="/pages/about/index">
+      <text class="iconfont icon-setting icon-size"/>
+      <text class="my-item-title">关于我们</text>
+      <text class="my-right-icon iconfont icon-right-arrow"/>
+    </view>
+  </view>
+</view>  

@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="my-wrap">
+    <view
+      class="my-item"
+      data-path="/pages/webview/index?url={{privacyUrl}}"
+      bindtap="handleOpenPage"
+    >
+      <text>隐私协议</text>
+      <text class="my-right-icon iconfont icon-right-arrow"/>
+    </view>
+    <view
+      class="my-item"
+      data-path="/pages/webview/index?url={{serviceUrl}}"
+      bindtap="handleOpenPage"
+    >
+      <text>服务协议</text>
+      <text class="my-right-icon iconfont icon-right-arrow"/>
+    </view>
+    <view
+      class="my-item"
+      bindtap="handleOpenPage"
+      data-path="/pages/feedback/index"
+    >
+      <text>意见反馈</text>
+      <text class="my-right-icon iconfont icon-right-arrow"/>
+    </view>
+  </view>
+</view>  

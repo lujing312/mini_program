@@ -1,0 +1,36 @@
+page {
+  background-color: #fff;
+}
+.container {
+  background-color: #fff;
+  padding: 40rpx;
+}
+.title {
+  font-size: 36rpx;
+  line-height: 50rpx;
+}
+.tips {
+  margin-top: 16rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #9b9b9b;
+}
+.input-wrap {
+  margin-top: 40rpx;
+  border-bottom: 1rpx solid #979797;
+}
+.input-num {
+  font-size: 56rpx;
+  padding: 20rpx 0;
+  height: 84rpx;
+}
+.placeholder {
+  color: #e5e5e5;
+  font-size: 56rpx;
+}
+.errmsg {
+  margin: 20rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #ff5a60;
+}

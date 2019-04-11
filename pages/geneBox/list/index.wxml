@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<scroll-view
+  scroll-y
+  class="container"
+  wx:if="{{geneboxList.length>0}}">
+  <view
+    class="list-item"
+    wx:for="{{geneboxList}}"
+    wx:for-index="gIdx"
+    wx:for-item="gItem"
+    wx:key="{{gIdx}}"
+    data-index="{{gIdx}}"
+    bindtap="handleTapCard"
+  >
+    <view class="info">
+      <image class="img" src="{{gItem.imgUrl}}" />
+      <view class="main">
+        <view class="title">{{gItem.nickName}}</view>
+        <view class="num">编号：{{gItem.boxNumber}}</view>
+      </view>
+    </view>
+    <view class="status">
+      <template name="active">
+        <view class="progress-item progress-active" />
+      </template>
+      <template name="normal">
+        <view class="progress-item" />
+      </template>
+      <view class="progress">
+        <view
+          wx:for="{{gItem.testProcess}}"
+          wx:for-index="tIdx"
+          wx:for-item="tItem"
+          wx:key="{{tIdx}}"
+        >
+          <template is="{{tIdx + 1 <= gItem.statusCode ? 'active' : 'normal'}}"/>
+        </view>
+      </view>
+      <view class="status-text">{{gItem.statusName}}<text class="iconfont icon-right-arrow"/></view>
+    </view>
+  </view>
+</scroll-view>
+<view class="no-data" wx:if="{{geneboxList.length===0}}">
+  <text class="iconfont icon-genebox-no-data"/>
+  <text class="no-data-text">你暂时没有绑定的唾液盒</text>
+</view>

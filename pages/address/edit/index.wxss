@@ -1,0 +1,31 @@
+page {
+	background-color: #fff;
+}
+.container {
+	background-color: #fff;
+}
+.form-item {
+  border-bottom: 1rpx solid #e5e5e5;
+  padding: 0 40rpx;
+  height: 120rpx;
+  font-size: 32rpx;
+  line-height: 50rpx;
+  display: flex;
+  align-items: center;
+}
+.form-label {
+  display: inline-block;
+  width: 170rpx;
+  color: #9b9b9b;
+}
+.form-flex {
+	flex: 1;
+	text-align: right;
+}
+.placeholder {
+  color: #e5e5e5;
+}
+.icon-right-arrow {
+	font-size: 24rpx;
+	color: #ccc;
+}

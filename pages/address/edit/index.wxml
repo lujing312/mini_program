@@ -1,0 +1,68 @@
+<!--index.wxml-->
+<view class="container">
+  <form bindsubmit="handleSubmit">
+    <view class="card-wrap">
+      <view class="form-item" wx:if="{{from!=='return'}}">
+        <view class="form-label">收件人</view>
+        <input
+          name="recipient"
+          class="form-flex"
+          placeholder="请输入收件人"
+          placeholder-class="placeholder"
+          value="{{recipient}}"
+        />
+      </view>
+      <view class="form-item" wx:if="{{from==='return'}}">
+        <view class="form-label">寄件人</view>
+        <input
+          name="recipient"
+          class="form-flex"
+          placeholder="请输入寄件人"
+          placeholder-class="placeholder"
+          value="{{recipient}}"
+        />
+      </view>
+      <view class="form-item">
+        <view class="form-label">手机号码</view>
+        <input
+          name="mobile"
+          class="form-flex"
+          type="number"
+          maxlength="11"
+          placeholder="请输入11位手机号码"
+          placeholder-class="placeholder"
+          value="{{mobile}}"
+        />
+      </view>
+    </view>
+    <view class="card-wrap">
+      <view class="form-item">
+        <view class="form-label">所在地区</view>
+        <picker
+          name="area"
+          mode="region"
+          class="form-flex"
+          value="{{area}}"
+          bindchange="handleRegionChange"
+        >
+            <view class="placeholder" wx:if="{{area.length===0}}">请选择所在地区</view>
+            <view wx:if="{{area.length>0}}">{{areaText}}</view>
+        </picker>
+        <text class="iconfont icon-right-arrow"/>
+      </view>
+      <view class="form-item">
+        <view class="form-label">详细地址</view>
+        <input
+          name="address"
+          class="form-flex"
+          placeholder="请输入街道门牌信息"
+          placeholder-class="placeholder"
+          value="{{address}}"
+        />
+      </view>
+    </view>
+    <button form-type="submit" class="common-btn">
+      <text>提交</text>
+    </button>
+  </form>
+</view>  

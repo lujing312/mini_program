@@ -1,0 +1,62 @@
+page {
+  background-color: #fff;
+}
+.container {
+  background-color: #fff;
+  font-weight: 300;
+  margin-top: 40rpx;
+}
+.icon-avatar {
+  color: #c8c7ce;
+  font-size: 92rpx;
+}
+.box-num,
+.list-tips {
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #9b9b9b;
+  margin: 0 40rpx;
+}
+.list-tips {
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+.list-wrap {
+  margin-top: 20rpx;
+}
+.list-wrap .list-item {
+  border-bottom: 1rpx solid #efeff5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 40rpx;
+}
+.list-item .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.list-item .left .img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.list-item .left .num {
+  font-size: 32rpx;
+  color: #292e4f;
+  line-height: 68rpx;
+  margin-left: 20rpx;
+}
+.list-item .bind {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10rpx 40rpx;
+  border: 1rpx solid #D2CFCF;
+  border-radius: 28rpx;
+  font-size: 26rpx;
+  color: #262628;
+  line-height: 36rpx;
+}

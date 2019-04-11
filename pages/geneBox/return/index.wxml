@@ -1,0 +1,73 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="recipient-info">
+    <view class="title">收货信息</view>
+    <view class="receiver">收件人：{{recipientInfo.recipient}}</view>
+    <view class="mobile">收件人电话：{{recipientInfo.mobile}}</view>
+    <view class="address">收件地址：<text>{{recipientInfo.address}}</text></view>
+  </view>
+  <view class="title header">寄件信息</view>
+  <view class="sender-wrap" bindtap="handleSelectAddress">
+    <view wx:if="{{senderInfo}}" class="sender-info">
+      <view class="sender">{{senderInfo.recipient}}</view>
+      <view class="mobile">{{senderInfo.mobile}}</view>
+    </view>
+    <view wx:if="{{senderInfo}}" class="address-info">
+      <text  class="text ellipsis">{{senderInfo.province}}{{senderInfo.city}}{{senderInfo.district}}{{senderInfo.address}}</text>
+      <text class="iconfont icon-right-arrow"/>
+    </view>
+    <view wx:if="{{!senderInfo}}" class="no-address">
+      <text class="text">选择地址</text>
+      <text class="iconfont icon-right-arrow"/>
+    </view>
+  </view>
+  <view class="title header">
+    <view>选择回寄唾液盒</view>
+    <view class="tips">小贴士：如果家人或朋友同时回寄唾液管，可以把多个唾液管一起交给顺丰小哥噢</view>
+    <view class="tips"><text>若遇到寄送困难，请将以下文字展示给顺丰小哥：\n托寄物品是用于检测的唾液样本，顺丰客服已明确表示可以正常通过陆运发运，收件方是顺丰的长期合作伙伴，请放心收取。</text></view>
+  </view>
+  <view class="box-list" wx:if="{{boxList.length>0}}">
+    <view
+      class="list-item"
+      wx:for="{{boxList}}"
+      wx:key="{{index}}"
+      data-index="{{index}}"
+      data-select="{{item.select}}"
+      bindtap="handleSelectItem"
+    >
+      <view class="left">
+        <text class="iconfont icon-avatar"/>
+        <view class="main">
+          <view class="name">{{item.nickName}}</view>
+          <view wx:if="{{item.boxNumber}}" class="num">唾液盒编号：{{item.boxNumber}}</view>
+        </view>
+      </view>
+      <view class="checkbox">
+        <text wx:if="{{item.select}}" class="iconfont icon-selected" />
+        <text wx:if="{{!item.select}}" class="iconfont icon-unselected" />
+      </view>
+    </view>
+  </view>
+  <view class="no-data" wx:if="{{boxList.length===0}}">暂无数据，请先绑定唾液盒</view>
+  <button wx:if="{{boxList.length>0}}" class="common-btn" bindtap="handleReturnBox">
+    <text>确定回寄</text>
+  </button>
+</view>
+<view class="dialog-bg" bindtap="handleDialogBackgroud" wx-if="{{dialogShow}}" catchtouchmove="preventTouchMove">
+    <view class="dialog-box">
+      <scroll-view scroll-y="true" style="max-height: 1000rpx">
+      <view class="dialog-main">
+          <view class="title">请确认您的信息</view>
+          <view class="receiver">地址：{{senderInfo.province}}{{senderInfo.city}}{{senderInfo.district}}{{senderInfo.address}}</view>
+          <view class="dialog-user-name">姓名：{{senderInfo.recipient}}</view>
+          <view class="mobile">电话：{{senderInfo.mobile}}</view>
+        </view>
+        <view class="dialog-point">点击“确认无误”，快递小哥就会在一小时之内上门取件。</view>
+        <view class="dialog-point-message">注意：免费回寄只能点击一次，信息错误会耽误您宝贵的时间。</view>
+      </scroll-view>
+      <view class="dialog-bot">
+        <view class="dialog-return-button" bindtap="handleReturnButton">返回修改</view>
+        <view class="dialog-true-button" bindtap="handleTrueButton">确认无误</view>
+      </view>
+    </view>
+</view>

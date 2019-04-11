@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{list.length>0}}">
+  <view
+    class="list-wrap"
+    wx:for="{{list}}"
+    wx:key="{{index}}"
+    data-path="{{item.link}}"
+    bindtap="handleOpenWebview"
+  >
+    <view class="item">
+      <view class="title">{{item.name}}</view>
+      <text class="my-right-icon iconfont icon-right-arrow"/>
+    </view>
+  </view>
+</view>
+<view class="no-data" wx:if="{{list.length===0}}">
+  <text class="iconfont icon-order"/>
+  <text class="no-data-text">暂无数据</text>
+</view>

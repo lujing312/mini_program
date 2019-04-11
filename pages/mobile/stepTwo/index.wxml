@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="title-wrap">
+  <text class="text">已向 {{phone}} 发送验证码</text>
+</view>
+<view class="code-wrap">
+  <view catchtap="handleSetFocus" class="input-wrap">
+    <view class="input-text-wrap {{typingCodeLength===0||typingCodeLength===1 ? 'input-active' : 'input-none'}}">
+      <text class="text">{{code[0]}}</text>
+    </view> 
+    <view class="input-text-wrap {{typingCodeLength===2 ? 'input-active' : 'input-none'}}">
+      <text class="text">{{code[1]}}</text>
+    </view>
+    <view class="input-text-wrap {{typingCodeLength===3 ? 'input-active' : 'input-none'}}">
+      <text class="text">{{code[2]}}</text>
+    </view>
+    <view class="input-text-wrap {{typingCodeLength===4 ? 'input-active' : 'input-none'}}">
+      <text class="text">{{code[3]}}</text>
+    </view> 
+  </view>
+  <input
+    bindinput="handleInputChange"
+    class="input-content"
+    type="number"
+    value="{{code}}"
+    focus="{{isInputFocus}}"
+    maxlength="4" />
+</view>
+<view class="send-time">
+  <text
+    wx:if="{{!reget}}"
+    class="text"
+  >{{time}}s 后可重新获取</text>
+  <button
+    wx:if="{{reget}}"
+    class="resend-btn"
+    bindtap="handleResendCode"
+  >重新获取</button>
+</view>

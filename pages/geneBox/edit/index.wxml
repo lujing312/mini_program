@@ -1,0 +1,99 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="title">请谨慎修改以下信息</view>
+  <view class="num">{{boxNumber}}</view>
+  <form class="form-wrap" bindsubmit="handleFormSubmit">
+    <view class="form-item">
+      <view class="placeholder">与你的关系</view>
+      <picker
+        name="relationship"
+        mode="selector"
+        range-key="name"
+        value="{{relationshipInfo.index}}"
+        range="{{relationshipRange}}"
+        class="form-item-flex-right"
+        bindchange="handleRelationShipChange"
+      >
+        <view wx:if="{{!relationshipInfo.name}}" class="placeholder">请选择<text class="iconfont icon-right-arrow"/></view>
+        <view wx:if="{{relationshipInfo.name}}">{{relationshipInfo.name}}</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <view class="placeholder">昵称</view>
+      <input
+        name="nickName"
+        value="{{nickName}}"
+        class="form-item-flex-right"
+        placeholder="填写昵称,最多9个字"
+        placeholder-style="color:#9b9b9b;"
+        maxlength="9"
+      />
+    </view>
+    <view class="form-item" wx:if="{{sexText}}">
+      <view class="placeholder">性别</view>
+      <view class="form-item-flex-right placeholder">{{sexText}}</view>
+    </view>
+    <view class="form-item">
+      <view class="placeholder">姓</view>
+      <input
+        wx:if="{{isShare==1}}"
+        name="surname"
+        value="{{surname}}"
+        class="form-item-flex-right"
+        placeholder="填写姓氏"
+        placeholder-style="color:#9b9b9b;"
+        confirm-type="next"
+      />
+      <view wx:if="{{isShare==2}}" class="form-item-flex-right placeholder">{{surname}}</view>
+    </view>
+    <view class="form-item">
+      <view class="placeholder">名</view>
+      <input
+        wx:if="{{isShare==1}}"
+        name="name"
+        value="{{name}}"
+        class="form-item-flex-right"
+        placeholder="填写名字"
+        placeholder-style="color:#9b9b9b;"
+        confirm-type="next"
+      />
+      <view wx:if="{{isShare==2}}" class="form-item-flex-right placeholder">{{name}}</view>
+    </view>
+    <view class="form-item">
+      <view class="placeholder">出生日期</view>
+      <picker
+        name="birthday"
+        mode="date"
+        value="{{birthday}}"
+        class="form-item-flex-right"
+        bindchange="handleBirthdayChange"
+      >
+        <view wx:if="{{isShare==1}}">
+          <view wx:if="{{birthday===''}}" class="placeholder">请选择<text class="iconfont icon-right-arrow"/></view>
+          <view wx:if="{{birthday!==''}}">{{birthday}}</view>
+        </view>
+        <view wx:if="{{isShare==2}}" class="form-item-flex-right placeholder">{{birthday}}</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <view class="placeholder">出生地</view>
+      <picker
+        name="born"
+        mode="region"
+        value="{{born}}"
+        class="form-item-flex-right"
+        bindchange="handleBornChange"
+      >
+        <view wx:if="{{isShare==1}}">
+          <view wx:if="{{bornText===''}}" class="placeholder">请选择<text class="iconfont icon-right-arrow"/></view>
+          <view wx:if="{{bornText!==''}}">{{bornText}}</view>
+        </view>
+        <view wx:if="{{isShare==2}}" class="form-item-flex-right placeholder">{{bornText}}</view>
+      </picker>
+    </view>
+    <button class="common-btn" form-type="submit">
+      <text wx:if="{{from==='qrcode'}}">确定绑定</text>
+      <text wx:if="{{from!=='qrcode'}}">提交</text>
+    </button>
+  </form>
+</view>

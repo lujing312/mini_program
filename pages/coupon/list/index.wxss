@@ -1,0 +1,102 @@
+page {
+  background-color: #fff;
+}
+.container {
+  background-color: #fff;
+  padding: 40rpx;
+}
+.list-item {
+  position: relative;
+  margin-bottom: 40rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  font-size: 28rpx;
+  padding: 30rpx 22rpx; 
+  box-shadow: 0 4rpx 28rpx 0 rgba(0,0,0,0.1);
+  color: #ff4158;
+}
+.list-item .btn {
+  border: 1rpx solid #ff4158;
+}
+.list-item .share-btn {
+  background: #fff;
+  color: #ff4158;
+  border: 1rpx solid #ff4158;
+}
+.list-item-disable {
+  background-color: #e0e0e0;
+  color: #9b9b9b;
+}
+.list-item-disable .btn {
+  border: 1rpx solid #9b9b9b;
+}
+.list-item .left {
+  width: 170rpx;
+  font-size: 72rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.list-item .left .mini-text {
+  font-size: 36rpx;
+  margin-top: 20rpx;
+}
+.list-item .right {
+  margin-left: 40rpx;
+  flex: 1;
+  line-height: 56rpx;
+}
+.right .title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.right .title .name {
+  color: #000;
+  font-size: 36rpx;
+}
+.right .title .btn {
+  font-size: 18rpx;
+  padding: 0 16rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  border-radius: 36rpx;
+}
+.right .title .share-btn {
+  height: 44rpx;
+}
+.right .title .status-text {
+  font-size: 24rpx;
+}
+.right .desc {
+  margin-top: 24rpx;
+  line-height: 34rpx;
+  color: #9b9b9b;
+  font-size: 24rpx;
+}
+.right .period {
+  margin-top: 12rpx;
+  line-height: 34rpx;
+  color: #9b9b9b;
+  font-size: 24rpx;
+}
+.icon-discount {
+  position: absolute;
+  top: -2rpx;
+  left: 0;
+  font-size: 72rpx;
+}
+.help {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 24rpx;
+  line-height: 36rpx;
+  margin-bottom: 100rpx;
+  text-decoration: underline
+}

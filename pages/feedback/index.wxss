@@ -1,0 +1,18 @@
+page {
+  background-color: #fff;
+}
+.container {
+  margin: 0 20rpx;
+  padding: 20rpx;
+  border: 1rpx solid #e5e5e5;
+}
+.textarea {
+  width: 100%;
+  font-size: 32rpx;
+  background-color: #fff;
+  line-height: 44rpx;
+}
+.placeholder {
+  color: #e5e5e5;
+  font-size: 32rpx;
+}

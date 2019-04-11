@@ -1,0 +1,51 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{orderList.length>0}}">
+  <view class="list-wrap">
+    <view
+      class="list-item"
+      wx:for="{{orderList}}"
+      wx:key="{{item.orderId}}"
+      bindtap="handleOpenDetail"
+      data-id="{{item.orderId}}"
+      data-type="{{item.listType}}"
+    >
+      <view class="top" >
+        <view class="time">{{item.createTime}}</view>
+        <view class="status">{{item.statusText}}</view>
+      </view>
+      <view class="main" wx:if="{{item.productInfo.length>0}}">
+        <image class="img" src="{{item.productInfo[0].imgUrl}}" />
+        <view class="info">
+          <view class="title">{{item.productInfo[0].name}}</view>
+          <view class="nums">
+            <view class="amount">数量：{{item.productInfo[0].count}}</view>
+            <view class="price">{{item.productInfo[0].price}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="remain-price">
+          <text class="remain-price-text">实付：</text>{{item.remainPrice}}
+        </view>
+        <view class="operate">
+          <view
+            wx:if="{{item.status==='5010'||item.status==='5011'||item.status==='5012'||item.status==='5013'||item.status==='5030'||item.status==='5031'||item.status==='5032'||item.status==='5033'||item.status==='6000'}}"
+            class="op-btn"
+            data-id="{{item.orderId}}"
+            catchtap="handleOpenExpress"
+          >物流追踪</view>
+          <view
+            wx:if="{{item.status==='1001'||item.status==='2001'}}"
+            class="op-btn"
+            catchtap="handlePay"
+            data-orderinfo="{{item}}"
+          >立即支付</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="no-data" wx:if="{{orderList.length===0}}">
+  <text class="iconfont icon-order-no-data"/>
+  <text class="no-data-text">你暂时还没有订单</text>
+</view>

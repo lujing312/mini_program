@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{addressList.length>0}}">
+  <view class="list-wrap">
+    <view
+      class="list-item"
+      wx:for="{{addressList}}"
+      wx:for-index="aIdx"
+      wx:for-item="aItem"
+      wx:key="{{aIdx}}"
+      data-index="{{aIdx}}"
+      bindtap="handleChoose"
+    >
+      <view class="info">
+        <view class="name">{{aItem.recipient}}</view>
+        <view class="mobile">{{aItem.mobile}}</view>
+        <view wx:if="{{aItem.isDefault}}" class="stamp">默认</view>
+      </view>
+      <view class="address">{{aItem.addressText}}</view>
+      <view class="operate" wx:if="{{hasOperate}}">
+        <view class="default" bindtap="handleSetDefault" data-id="{{aItem.id}}">
+          <text wx:if="{{aItem.isDefault}}" class="iconfont icon-selected"/>
+          <text wx:if="{{!aItem.isDefault}}" class="iconfont icon-unselected"/>
+          <text class="title">设为默认</text>
+        </view>
+        <view class="btns">
+          <view class="edit" bindtap="handleEdit" data-index="{{aIdx}}">
+            <text class="iconfont icon-edit"/>
+            <text class="title">编辑</text>
+          </view>
+          <view class="delete" bindtap="handleDelete" data-id="{{aItem.id}}">
+            <text class="iconfont icon-delete"/>
+            <text class="title">删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button bindtap="handleAdd" class="common-btn">
+    <text>新增地址</text>
+  </button>
+</view>
+<view class="no-data" wx:if="{{addressList.length===0}}">
+  <text class="iconfont icon-address-no-data"/>
+  <text class="no-data-text">还没有地址</text>
+  <button class="no-data-add-btn" bindtap="handleAdd">添加地址</button>
+</view>

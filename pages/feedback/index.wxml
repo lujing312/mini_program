@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<form bindsubmit="handleSubmit">
+  <view class="container">
+      <textarea
+        class="textarea"
+        placeholder="欢迎基因宝友们在此吐槽或提建议，产品经理将倾听反馈。如遇问题或bug请联系我们的客服专线{{hotline}}进行反馈。"
+        placeholder-class="placeholder"
+        name="advice"
+      />
+  </view>
+  <button class="common-btn" form-type="submit">
+    <text>提交</text>
+  </button>
+</form>

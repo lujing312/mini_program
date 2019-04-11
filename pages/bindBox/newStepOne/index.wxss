@@ -1,0 +1,62 @@
+page {
+  background-color: #fff;
+}
+.container {
+  background-color: #fff;
+  padding-bottom: 200rpx; 
+}
+.page-tips {
+  font-size: 28rpx;
+  font-weight: 300;
+  padding: 40rpx;
+}
+.title {
+  font-size: 32rpx;
+  line-height: 50rpx;
+  font-weight: 400;
+  padding: 0 40rpx;
+}
+.subtitle {
+  font-size: 32rpx;
+  line-height: 50rpx;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #efeff5;
+  font-weight: 400;
+  padding: 0 40rpx;
+}
+.num {
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 32rpx;
+  border-bottom: 1rpx solid #efeff5;
+  font-weight: 300;
+  padding: 0 40rpx;
+}
+.form-item {
+  font-size: 32rpx;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #efeff5;
+  padding: 0 40rpx;
+}
+.form-item-flex-right {
+  flex: 1;
+  text-align: right;
+}
+.label {
+  color: #9b9b9b;
+}
+.placeholder {
+  color: #e5e5e5;
+}
+.icon-right-arrow {
+  display: inline-block;
+	font-size: 20rpx;
+	color: #ccc;
+}

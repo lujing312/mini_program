@@ -1,0 +1,99 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="page-tips">请认真填写以下信息，以便于我们为你作出更精准的生活推荐。除性别外，其他信息均可在【我的基因宝】模块中随时进行修改。</view>
+  <view class="title">你的账户即将绑定以下基因盒：</view>
+  <view class="num">{{boxNumber}}</view>
+  <form bindsubmit="handleFormSubmit">
+    <view class="form-item">
+      <view class="label">昵称</view>
+      <input
+        name="nickName"
+        class="form-item-flex-right"
+        placeholder="填写昵称,最多9个字"
+        placeholder-class="placeholder"
+        confirm-type="next"
+        maxlength="9"
+      />
+    </view>
+    <view class="form-item">
+      <view class="label">与你的关系</view>
+      <picker
+        name="relationship"
+        mode="selector"
+        range-key="name"
+        range="{{relationshipRange}}"
+        class="form-item-flex-right"
+        bindchange="handleRelationShipChange"
+        confirm-type="next"
+      >
+        <view wx:if="{{!relationshipRange[relationship].name}}" class="placeholder">请选择<text class="iconfont icon-right-arrow"/></view>
+        <view wx:if="{{relationshipRange[relationship].name}}">{{relationshipRange[relationship].name}}<text class="iconfont icon-right-arrow"/></view>
+      </picker>
+    </view>
+    <view class="subtitle">基因盒主人信息：</view>
+    <view class="sex-form-item">
+      <view class="form-item">
+        <view class="label">性别</view>
+        <picker
+          name="sex"
+          mode="selector"
+          value="{{sex}}"
+          range="{{sexRange}}"
+          range-key="label"
+          class="form-item-flex-right"
+          bindchange="handleSexChange"
+        >
+          <view wx:if="{{sex===''}}" class="placeholder">请选择<text class="iconfont icon-right-arrow"/></view>
+          <view wx:if="{{sex!==''}}">{{sexRange[sex].label}}<text class="iconfont icon-right-arrow"/></view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="label">姓</view>
+      <input
+        name="surname"
+        class="form-item-flex-right"
+        placeholder="填写姓氏"
+        placeholder-class="placeholder"
+        confirm-type="next"
+      />
+    </view>
+    <view class="form-item">
+      <view class="label">名</view>
+      <input
+        name="name"
+        class="form-item-flex-right"
+        placeholder="填写名字"
+        placeholder-class="placeholder"
+        confirm-type="next"
+      />
+    </view>
+    <view class="form-item">
+      <view class="label">出生日期</view>
+      <picker
+        name="birthday"
+        mode="date"
+        class="form-item-flex-right"
+        bindchange="handleBirthdayChange"
+      >
+        <view wx:if="{{birthday===''}}" class="placeholder">请选择<text class="iconfont icon-right-arrow"/></view>
+        <view wx:if="{{birthday!==''}}">{{birthday}}<text class="iconfont icon-right-arrow"/></view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <view class="label">出生地</view>
+      <picker
+        name="born"
+        mode="region"
+        class="form-item-flex-right"
+        bindchange="handleBornChange"
+      >
+        <view wx:if="{{born===''}}" class="placeholder">请选择<text class="iconfont icon-right-arrow"/></view>
+        <view wx:if="{{born!==''}}">{{born}}<text class="iconfont icon-right-arrow"/></view>
+      </picker>
+    </view>
+    <button class="common-btn" form-type="submit">
+      <text>下一步</text>
+    </button>
+  </form>
+</view>

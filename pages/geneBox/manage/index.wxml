@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container">
+  <view wx:if="{{boxNumber}}" class="box-num">唾液盒编号：{{boxNumber}}</view>
+  <view class="list-tips" wx:if="{{list.length>0}}">以下家人和朋友也能够看到本唾液盒的检测结果：</view>
+  <view class="list-wrap" wx:if="{{list.length>0}}">
+    <view
+      wx:for="{{list}}"
+      wx:key="{{index}}}"
+      class="list-item"
+    >
+      <view class="left">
+        <text class="iconfont icon-avatar"/>
+        <view wx:if="{{item.name}}" class="num">{{item.name}}</view>
+      </view>
+      <view
+        class="bind"
+        data-id="{{item.binderId}}"
+        bindtap="handleUntieShare"
+      >解绑</view>
+    </view>
+  </view>
+</view>

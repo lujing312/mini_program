@@ -1,0 +1,44 @@
+page {
+  background-color: #fff;
+}
+.container {
+  background-color: #fff;
+  padding: 40rpx;
+  display: block;
+}
+.title {
+  font-size: 36rpx;
+  line-height: 50rpx;
+}
+.input-wrap {
+  margin: 40rpx 20rpx 0 20rpx;
+  border-bottom: 1rpx solid #9b9b9b;
+}
+.input-num {
+  font-size: 56rpx;
+  padding: 20rpx 0;
+  height: 84rpx;
+}
+.placeholder {
+  color: #9b9b9b;
+  font-size: 56rpx;
+}
+.errmsg {
+  margin: 20rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #ff5a60;
+}
+.protocol-wrap {
+  margin-top: 40rpx;
+  font-size: 28rpx;
+  line-height: 36Rpx;
+  color: #9b9b9b;
+  text-align: center;
+}
+.protocol-wrap .protocol {
+  color: #70aef9;
+}
+.next-btn {
+  margin-top: 100rpx;
+}

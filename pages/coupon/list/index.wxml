@@ -1,0 +1,62 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{couponList.length>0}}">
+  <template name="discount">
+    <view
+      class="list-item {{status!==1 ? 'list-item-disable' : ''}}"
+      data-status="{{status}}"
+    >
+      <text class="iconfont icon-discount" />
+      <view class="left">
+        <text>{{price}}</text>
+        <text class="mini-text">折</text>
+      </view>
+      <view class="right">
+        <view class="title">
+          <view class="name">{{name}}</view>
+          <!-- <view wx:if="{{status===1}}" class="btn">立即使用</view> -->
+          <view wx:if="{{status===2}}" class="status-text">已使用</view>
+          <view wx:if="{{status===3}}" class="status-text">已失效</view>
+        </view>
+        <view class="desc">{{des}}</view>
+        <view class="period">{{valid}}</view>
+      </view>
+    </view>
+  </template>
+  <template name="cash">
+    <view
+      class="list-item {{status!==1 ? 'list-item-disable' : ''}}"
+      data-status="{{status}}"
+    >
+      <view class="left">
+        <text>{{price}}</text>
+        <text class="mini-text">元</text>
+      </view>
+      <view class="right">
+        <view class="title">
+          <view class="name">{{name}}</view>
+          <!-- <view wx:if="{{status===1}}" class="btn">立即使用</view> -->
+          <view wx:if="{{status===2}}" class="status-text">已使用</view>
+          <view wx:if="{{status===3}}" class="status-text">已失效</view>
+        </view>
+        <view class="desc">{{des}}</view>
+        <view class="period">{{valid}}</view>
+      </view>
+    </view>
+  </template>
+  <view
+    wx:for="{{couponList}}"
+    wx:for-index="cIdx"
+    wx:for-item="cItem"
+    wx:key="{{cIdx}}"
+  >
+    <template
+      data="{{...cItem}}"
+      is="{{cItem.type===1 ? 'discount': 'cash'}}"
+    />
+  </view>
+  <view class="help" bindtap="handleOpenRules">使用规则</view>
+</view>
+<view class="no-data" wx:if="{{couponList.length===0}}">
+  <text class="iconfont icon-coupon-no-data"/>
+  <text class="no-data-text">暂时没有可用的优惠券</text>
+</view>

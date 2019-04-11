@@ -1,0 +1,63 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{shareList.length>0}}">
+  <view
+    class="list-item"
+    wx:for="{{shareList}}"
+    wx:key="{{item.boxNumber}}">
+    <view class="box-wrap">
+      <text class="iconfont icon-avatar"/>
+      <view class="box">
+        <view class="nickname">{{item.nickName}}</view>
+        <view class="box-num">唾液盒编号：{{item.boxNumber}}</view>
+      </view>
+    </view>
+    <view class="op-wrap">
+      <view
+        class="share-wrap"
+        wx:if="{{item.isShare==1}}"
+        data-id="{{item.boxNumber}}"
+        bindtap="handleOpenQrcode">
+        <view class="share-item">
+          <text class="iconfont icon-share-box"/>
+          <text class="share-text">分享检测结果</text>
+        </view>
+        <view class="share-item">
+          <text class="iconfont icon-qrcode" wx:if="{{item.shareNumber<3}}" />
+          <text class="share-text" wx:if="{{item.shareNumber>=3}}">分享次数已达上限</text>
+          <text class="iconfont icon-right-arrow"/>
+        </view>
+      </view>
+      <view
+        class="share-wrap"
+        wx:if="{{item.isShare==1}}"
+        data-id="{{item.boxNumber}}"
+        bindtap="handleOpenManage">
+        <view class="share-item">
+          <text class="iconfont icon-share-to"/>
+          <text class="share-text">已分享给</text>
+        </view>
+        <view class="share-item">
+          <text class="share-text">{{item.shareNumber}}人</text>
+          <text class="iconfont icon-right-arrow"/>
+        </view>
+      </view>
+      <view
+        class="share-wrap"
+        wx:if="{{item.isShare==2}}"
+        data-id="{{item.boxNumber}}"
+        bindtap="handleRemoveBox">
+        <view class="share-item remove">
+          <text class="iconfont icon-remove"/>
+          <text class="share-text">移除该唾液盒</text>
+        </view>
+        <view class="share-item">
+          <text class="iconfont icon-right-arrow"/>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="no-data" wx:if="{{shareList.length===0}}">
+  <text class="iconfont icon-genebox-no-data"/>
+  <text class="no-data-text">你还没有报告</text>
+</view>

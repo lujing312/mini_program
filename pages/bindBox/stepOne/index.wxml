@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="title">你的账户即将绑定以下基因盒</view>
+  <view class="num">{{boxNumber}}</view>
+  <view class="relate">
+    <view class="title">基因盒主人与你的关系：</view>
+    <form bindsubmit="handleFormSubmit">
+      <radio-group class="radio-group" name="type" value="{{type}}" bindchange="handleRelateChange">
+        <label class="radio-item">本人<radio checked="{{type==='1'}}" value="1" /></label>
+        <label class="radio-item">非本人<radio checked="{{type==='2'}}" value="2" /></label>
+      </radio-group>
+      <view class="form-item">
+        <view class="placeholder">昵称</view>
+        <input
+          name="nickName"
+          class="form-item-flex-right"
+          placeholder="填写昵称,最多9个字"
+          placeholder-style="color:#9b9b9b;"
+          confirm-type="next"
+          maxlength="9"
+        />
+      </view>
+      <view class="form-item" wx:if="{{showRelationshipForm}}">
+        <view class="placeholder">与你的关系</view>
+        <picker
+          name="relationship"
+          mode="selector"
+          range-key="name"
+          range="{{relationshipRange}}"
+          class="form-item-flex-right"
+          bindchange="handleRelationShipChange"
+          confirm-type="next"
+        >
+          <view wx:if="{{!relationshipRange[relationshipIndex].name}}" class="placeholder">请选择<text class="iconfont icon-right-arrow"/></view>
+          <view wx:if="{{relationshipRange[relationshipIndex].name}}">{{relationshipRange[relationshipIndex].name}}<text class="iconfont icon-right-arrow"/></view>
+        </picker>
+      </view>
+      <button class="next-btn" form-type="submit">
+        <text>下一步</text>
+        <view wx:if="{{iPhoneX}}" class="empty-placeholder"></view>
+      </button>
+    </form>
+  </view>
+</view>

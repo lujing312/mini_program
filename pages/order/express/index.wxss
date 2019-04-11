@@ -1,0 +1,46 @@
+page {
+  background-color: #fff;
+}
+.container {
+  background-color: #fff;
+  padding: 0 40rpx;
+}
+.list-wrap {
+  padding-top: 60rpx;
+}
+.list-item {
+  display: flex;
+  flex-direction: row;
+  height: 160rpx;
+  position: relative;
+}
+.list-item .datetime {
+  font-size: 36rpx;
+  color: #9b9b9b;
+  font-size: 24rpx;
+}
+.list-item .detail {
+  flex: 1;
+  font-size: 28rpx;
+  color: #262628;
+  margin-left: 80rpx;
+}
+.detail:before {
+  position: absolute;
+  top: 0rpx;
+  left: 160rpx;
+  content: '';
+  height: 160rpx;
+  width: 2rpx;
+  background-color: #d8d8d8;
+}
+.detail:after {
+  position: absolute;
+  top: 0rpx;
+  left: 153rpx;
+  content: '';
+  height: 16rpx;
+  width: 16rpx;
+  border-radius: 8rpx;
+  background-color: #d8d8d8;
+}

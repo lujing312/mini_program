@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{list.length>0}}">
+  <view
+    class="list-item"
+    wx:for="{{list}}"
+    wx:key="{{index}}"
+  >
+    <text>唾液盒编号</text>
+    <text wx:if="{{item.boxNumber}}">{{item.boxNumber}}</text>
+  </view>
+</view>
+<view class="no-data" wx:if="{{list.length===0}}">
+  <text class="iconfont icon-order"/>
+  <text class="no-data-text">还没有唾液盒哦</text>
+</view>

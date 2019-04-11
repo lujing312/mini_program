@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="title">请输入唾液采集器侧面的编号</view>
+  <form bindsubmit="handleNextStep">
+    <view class="input-wrap">
+      <input
+        class="input-num"
+        type="number"
+        name="boxNumber"
+        maxlength="13"
+        value="{{boxNumber}}"
+        placeholder="请输入11位编号"
+        placeholder-class="placeholder"
+        bindinput="handleInputChange"
+      />
+    </view>
+    <view class="errmsg" wx:if="{{errmsg!==''}}">{{errmsg}}</view>
+    <button class="common-btn" form-type="submit">
+      <text>下一步</text>
+    </button>
+  </form>
+</view>

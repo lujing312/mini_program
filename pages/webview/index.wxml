@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<web-view wx:if="{{url}}" src="{{url}}"></web-view>
+<view class="no-data" wx:if="{{!url}}">
+  <text class="iconfont icon-order"/>
+  <text class="no-data-text">网页打开失败，请稍后再试</text>
+</view>

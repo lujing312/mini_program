@@ -1,0 +1,136 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{orderInfo}}">
+  <view class="header">
+    <view class="status-text">{{orderInfo.statusText}}</view>
+    <template name="active">
+      <view class="progress-item progress-active" />
+    </template>
+    <template name="normal">
+      <view class="progress-item" />
+    </template>
+    <view class="progress">
+      <view
+        wx:for="{{statusProcess}}"
+        wx:for-index="sIdx"
+        wx:for-item="sItem"
+        wx:key="{{sIdx}}">
+        <template is="{{sItem <= orderInfo.status ? 'active' : 'normal'}}"/>
+      </view>
+    </view>
+  </view>
+  <view class="address-wrap" wx:if="{{orderType!=1}}">
+    <view class="user">
+      <view class="name">
+        <text class="iconfont icon-address"/>
+        {{orderInfo.recipient}}
+      </view>
+      <view class="mobile">{{orderInfo.mobile}}</view>
+    </view>
+    <view class="address">{{orderInfo.address}}</view>
+  </view>
+  <view class="boxNumber-wrap" wx:if="{{orderType==1}}"><text class="boxnumber-text">唾液盒编号:</text>{{orderInfo.boxNum}}</view>
+  <view class="product-wrap">
+    <view class="product" wx:if="{{orderInfo.productInfo.length>0}}">
+      <image class="img" src="{{orderInfo.productInfo[0].imgUrl}}" />
+      <view class="info">
+        <view class="title">{{orderInfo.productInfo[0].name}}</view>
+        <view class="nums">
+          <view class="amount">数量：{{orderInfo.productInfo[0].count}}</view>
+          <view class="price">{{orderInfo.productInfo[0].price}}</view>
+        </view>
+      </view>
+    </view> 
+    <view class="bottom">
+      <view class="remain-price" wx:if="{{orderInfo.discountInfo}}">
+        <text class="remain-price-text">实付：</text>
+        {{orderInfo.discountInfo.remainPrice}}
+      </view>
+      <view class="operate">
+        <view
+          wx:if="{{orderInfo.status==='5010'||orderInfo.status==='5011'||orderInfo.status==='5012'||orderInfo.status==='5013'||orderInfo.status==='5030'||orderInfo.status==='5031'||orderInfo.status==='5032'||orderInfo.status==='5033'||orderInfo.status==='6000'}}"
+          class="btn-item"
+          data-id="{{orderInfo.orderId}}"
+          bindtap="handleOpenExpress"
+        >物流追踪</view>
+        <view
+          wx:if="{{orderInfo.status==='1001'||orderInfo.status==='2001'}}"
+          class="btn-item"
+          data-orderinfo="{{orderInfo}}"
+          bindtap="handlePayOrder"
+        >立即支付</view>
+      </view>
+    </view>
+  </view>
+  <view class="discount-wrap" wx:if="{{orderInfo.discountInfo}}">
+    <view class="title">价格明细</view>
+    <view class="total item">
+      <view class="label">商品总额</view>
+      <view class="text">{{orderInfo.discountInfo.totalPrice}}</view>
+    </view>
+    <view
+      wx:if="{{orderInfo.discountInfo&&orderInfo.discountInfo.detail.length>0}}"
+      class="discount-list"
+      wx:for="{{orderInfo.discountInfo.detail}}"
+      wx:for-index="dIdx"
+      wx:for-item="dItem"
+      wx:key="{{dIdx}}"
+    >
+      <view class="item">
+        <view class="label">{{dItem.name}}</view>
+        <view class="text">-{{dItem.coupon}}</view>
+      </view>
+    </view>
+    <view class="remain item" wx:if="{{orderInfo.discountInfo}}">
+      <view class="label">实付价格</view>
+      <view class="text">{{orderInfo.discountInfo.remainPrice}}</view>
+    </view>
+  </view>
+  <view class="order-wrap">
+    <view class="title">
+      <text>订单信息</text>
+      <view
+        wx:if="{{orderInfo.status>=5010}}"
+        class="btn-item"
+        data-id="{{orderInfo.orderId}}"
+        bindtap="handleOpenBoxList"
+      >唾液盒编号</view>
+    </view>
+    <view class="item">
+      <view class="label">订单编号</view>
+      <view class="text">{{orderInfo.orderNum}}</view>
+    </view>
+    <view class="item">
+      <view class="label">下单时间</view>
+      <view class="text">{{orderInfo.createTime}}</view>
+    </view>
+    <view wx:if="{{orderInfo.payType}}" class="item">
+      <view class="label">支付方式</view>
+      <view wx:if="{{orderInfo.payType===1}}" class="text">支付宝</view>
+      <view wx:if="{{orderInfo.payType===2}}" class="text">微信支付</view>
+      <view wx:if="{{orderInfo.payType===3}}" class="text">-</view>
+    </view>
+    <view wx:if="{{orderInfo.payTime}}" class="item">
+      <view class="label">支付时间</view>
+      <view class="text">{{orderInfo.payTime}}</view>
+    </view>
+  </view>
+  <view class="bottom-wrap {{iPhoneX ? 'fix-iphonex' : ''}}">
+    <view class="btn-item" bindtap="handleFeedback">联系客服</view>
+    <view
+      wx:if="{{orderInfo.remainPrice===0||orderInfo.status==='1001'||orderInfo.status==='2001'}}"
+      class="btn-item"
+      bindtap="handleCancelOrder"
+      data-id="{{orderInfo.orderId}}"
+    >取消订单</view>
+    <view
+      wx:if="{{orderInfo.remainPrice>0&&(orderInfo.status==='2003'||orderInfo.status==='5010'||orderInfo.status==='5030')}}"
+      class="btn-item"
+      bindtap="handleRundOrder"
+      data-id="{{orderInfo.orderId}}"
+    >我要退款</view>
+  </view>
+</view>
+<view class="no-data" wx:if="{{!orderInfo}}">
+  <text class="iconfont icon-order"/>
+  <text class="no-data-text">还没有订单数据哦</text>
+</view>

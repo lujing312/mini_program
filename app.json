@@ -1,0 +1,72 @@
+{
+  "pages": [
+    "pages/explore/home/index",
+    "pages/buy/index",
+    "pages/my/index",
+    "pages/address/list/index",
+    "pages/address/edit/index",
+    "pages/bindBox/manualInput/index",
+    "pages/bindBox/stepOne/index",
+    "pages/bindBox/stepTwo/index",
+    "pages/bindBox/newStepOne/index",
+    "pages/bindBox/newStepTwo/index",
+    "pages/coupon/list/index",
+    "pages/coupon/select/index",
+    "pages/geneBox/list/index",
+    "pages/geneBox/process/index",
+    "pages/geneBox/detail/index",
+    "pages/geneBox/edit/index",
+    "pages/geneBox/return/index",
+    "pages/geneBox/share/index",
+    "pages/geneBox/manage/index",
+    "pages/share/index",
+    "pages/message/list/index",
+    "pages/message/detail/index",
+    "pages/order/fill/index",
+    "pages/order/list/index",
+    "pages/order/detail/index",
+    "pages/order/express/index",
+    "pages/order/boxList/index",
+    "pages/mobile/stepOne/index",
+    "pages/mobile/stepTwo/index",
+    "pages/feedback/index",
+    "pages/about/index",
+    "pages/explore/qaList/index",
+    "pages/webview/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7a7e83",
+    "selectedColor": "#70aef9",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/explore/home/index",
+        "text": "如何采集唾液",
+        "iconPath": "assets/icon_explore_n.png",
+        "selectedIconPath": "assets/icon_explore_a.png"
+      },
+      {
+        "pagePath": "pages/buy/index",
+        "text": "购买",
+        "iconPath": "assets/icon_buy_n.png",
+        "selectedIconPath": "assets/icon_buy_a.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "assets/icon_my_n.png",
+        "selectedIconPath": "assets/icon_my_a.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 30000
+  },
+  "debug": true
+}

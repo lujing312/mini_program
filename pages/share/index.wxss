@@ -1,0 +1,65 @@
+page {
+  background-color: #fff;
+}
+.container {
+  background-color: #fff;
+  font-weight: 300;
+  margin-top: 40rpx;
+  padding-bottom: 200rpx;
+}
+.iconfont {
+  color: #a8a8a8;
+  font-size: 40rpx;
+}
+.icon-avatar {
+  color: #c8c7ce;
+  font-size: 92rpx;
+}
+.icon-right-arrow {
+	font-size: 24rpx;
+}
+.list-item {
+  margin-top: 60rpx;
+  border-bottom: 1rpx solid #efeff5;
+}
+.box-wrap {
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx 40rpx;
+}
+.box {
+  margin-left: 20rpx;
+  flex: 1;
+}
+.box .nickname {
+  font-size: 32rpx;
+  color: #292e4f;
+  line-height: 50rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+.box .box-num {
+  font-size: 28rpx;
+  color: #292e4f;
+  line-height: 50rpx;
+}
+.op-wrap .share-wrap {
+  padding: 0 40rpx;
+  border-top: 1rpx solid #efeff5;
+  height: 120rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+}
+.op-wrap .share-item {
+  display: flex;
+  align-items: center;
+}
+.op-wrap .share-text {
+  margin-left: 20rpx;
+}

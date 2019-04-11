@@ -1,0 +1,36 @@
+page {
+  background-color: #fff;
+}
+.container {
+  background-color: #fff;
+  font-weight: 300;
+  margin-top: 40rpx;
+}
+.box-num,
+.box-tips {
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #9b9b9b;
+  margin: 0 40rpx;
+}
+.box-tips {
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+.qrcode-wrap {
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.qrcode-wrap .qrcode {
+  width: 160px;
+  height: 160px;
+}
+.qrcode-wrap .qrcode-tips {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #292e4f;
+  line-height: 68rpx;
+}

@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="title">你的账户即将绑定以下基因盒：</view>
+  <view class="num">{{boxNumber}}</view>
+  <view class="sex-form-item">
+    <view class="form-item">
+      <view class="label">性别</view>
+      <view class="form-item-flex-right">{{sexText}}</view>
+    </view>
+    <view class="sex-tips">以上信息提交后无法修改，请仔细确认后继续操作</view>
+  </view>
+  <view class="form-item">
+    <view class="label">昵称</view>
+    <view class="form-item-flex-right">{{nickName}}</view>
+  </view>
+  <view class="form-item">
+    <view class="label">与你的关系</view>
+    <view class="form-item-flex-right">{{relationshipInfo.name}}</view>
+  </view>
+  <view class="form-item">
+    <view class="label">姓</view>
+    <view class="form-item-flex-right">{{surname}}</view>
+  </view>
+  <view class="form-item">
+    <view class="label">名</view>
+    <view class="form-item-flex-right">{{name}}</view>
+  </view>
+  <view class="form-item">
+    <view class="label">出生日期</view>
+    <view class="form-item-flex-right">{{birthday}}</view>
+  </view>
+  <view class="form-item">
+    <view class="label">出生地</view>
+    <view class="form-item-flex-right">{{bornText}}</view>
+  </view>
+  <button class="common-btn" bindtap="handleFormSubmit">
+    <text>确认无误</text>
+  </button>
+</view>

@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container">
+  <button
+    wx:if="{{!isLogin}}"
+    wx:for="{{postList}}"
+    wx:key="{{index}}"
+    open-type="getUserInfo"
+    data-id="{{item.productId}}"
+    bindgetuserinfo="handleGetUserInfo"
+    class="product">
+    <image mode="widthFix" src="{{item.imgUrl}}" />
+  </button>
+  <button
+    wx:if="{{isLogin}}"
+    wx:for="{{postList}}"
+    wx:key="{{index}}"
+    data-id="{{item.productId}}"
+    bindtap="handleOpenProduct"
+    class="product">
+    <image mode="widthFix" src="{{item.imgUrl}}" />
+  </button>
+</view>

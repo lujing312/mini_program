@@ -1,0 +1,69 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{couponList.length>0}}">
+  <template name="discount">
+    <label
+      class="list-item {{disabled ? 'list-item-disable' : ''}}"
+      data-idx="{{cIdx}}"
+      data-checked="{{checked}}"
+      data-disabled="{{disabled}}"
+      bindtap="handleUse"
+    >
+      <text class="iconfont icon-discount" />
+      <view class="left">
+        <text>{{price}}</text>
+        <text class="mini-text">折</text>
+      </view>
+      <view class="right">
+        <view class="title">
+          <view class="name">{{name}}</view>
+          <text wx:if="{{!disabled && checked}}" class="iconfont icon-selected" />
+          <text wx:if="{{!disabled && !checked}}" class="iconfont icon-unselected" />
+        </view>
+        <view class="desc">{{des}}</view>
+        <view class="period">{{valid}}</view>
+      </view>
+    </label>
+  </template>
+  <template name="cash">
+    <label
+      class="list-item {{disabled ? 'list-item-disable' : ''}}"
+      data-idx="{{cIdx}}"
+      data-checked="{{checked}}"
+      data-disabled="{{disabled}}"
+      bindtap="handleUse"
+    >
+      <view class="left">
+        <text>{{price}}</text>
+        <text class="mini-text">元</text>
+      </view>
+      <view class="right">
+        <view class="title">
+          <view class="name">{{name}}</view>
+          <text wx:if="{{!disabled && checked}}" class="iconfont icon-selected" />
+          <text wx:if="{{!disabled && !checked}}" class="iconfont icon-unselected" />
+        </view>
+        <view class="desc">{{des}}</view>
+        <view class="period">{{valid}}</view>
+      </view>
+    </label>
+  </template>
+  <view
+    wx:for="{{couponList}}"
+    wx:for-index="cIdx"
+    wx:for-item="cItem"
+    wx:key="{{cIdx}}"
+  >
+    <template
+      data="{{...cItem, cIdx}}"
+      is="{{cItem.type===1 ? 'discount': 'cash'}}"
+    />
+  </view>
+  <view class="help" bindtap="handleOpenRules">使用规则</view>
+  <button class="common-btn" bindtap="handleSubmit">
+    <text>确定</text>
+  </button>
+</view>
+<view class="no-data" wx:if="{{couponList.length===0}}">
+  <text class="iconfont icon-coupon-no-data"/>
+  <text class="no-data-text">暂时没有可用的优惠券</text>
+</view>

@@ -1,0 +1,65 @@
+page {
+  background-color: #fff;
+}
+.container {
+  background-color: #fff;
+  padding: 40rpx;
+}
+.title {
+  font-size: 32rpx;
+  line-height: 50rpx;
+}
+.num {
+  margin-top: 10rpx;
+  font-size: 32rpx;
+  line-height: 50rpx;
+}
+.tips {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #9b9b9b;
+}
+.form-wrap {
+  margin-top: 16rpx;
+}
+.form-item {
+  font-size: 32rpx;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #efeff5;
+}
+.form-item-flex-right {
+  flex: 1;
+  text-align: right;
+}
+.placeholder {
+  color: #9b9b9b;
+}
+.icon-right-arrow {
+  display: inline-block;
+	font-size: 20rpx;
+	color: #ccc;
+}
+.sex-form-item {
+  border-bottom: 1rpx solid #efeff5;
+}
+.sex-form-item .form-item {
+  border-bottom: none;
+}
+.sex-form-item .sex-tips {
+  font-size: 24rpx;
+  color: #fc616c;
+  margin-bottom: 20rpx;
+}
+.next-btn {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #70aef9;
+  color: #fff;
+  width: 100%;
+  border-radius: 0;
+  padding: 0;
+}

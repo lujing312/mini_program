@@ -1,0 +1,15 @@
+page {
+  background-color: #fff;
+}
+.product {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+.product image {
+  width: 100%;
+  display: block;
+}
+.product:after {
+  border: none;
+}

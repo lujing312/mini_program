@@ -1,0 +1,16 @@
+page {
+	background-color: #fff;
+}
+.container {
+	background-color: #fff;
+}
+.list-item {
+	border-bottom: 1rpx solid #efeff5;
+	padding: 20rpx 40rpx;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-size: 32rpx;
+	line-height: 44rpx;
+	color: #484848;
+}

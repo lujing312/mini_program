@@ -1,0 +1,74 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="title">请填写此基因盒主人的信息</view>
+  <view class="num">{{boxNum}}</view>
+  <view class="tips">请准确、真实地填写以下信息；信息的准确性和真实性会影响检测结果</view>
+  <form class="form-wrap" bindsubmit="handleFormSubmit">
+    <view class="form-item">
+      <view class="placeholder">姓</view>
+      <input
+        name="surname"
+        class="form-item-flex-right"
+        placeholder="填写姓氏"
+        placeholder-style="color:#9b9b9b;"
+        confirm-type="next"
+      />
+    </view>
+    <view class="form-item">
+      <view class="placeholder">名</view>
+      <input
+        name="name"
+        class="form-item-flex-right"
+        placeholder="填写名字"
+        placeholder-style="color:#9b9b9b;"
+        confirm-type="next"
+      />
+    </view>
+    <view class="sex-form-item">
+      <view class="form-item">
+        <view class="placeholder">性别</view>
+        <picker
+          name="sex"
+          mode="selector"
+          value="{{sex}}"
+          range="{{sexRange}}"
+          range-key="label"
+          class="form-item-flex-right"
+          bindchange="handleSexChange"
+        >
+          <view wx:if="{{sex===''}}" class="placeholder">请选择<text class="iconfont icon-right-arrow"/></view>
+          <view wx:if="{{sex!==''}}">{{sexRange[sex].label}}<text class="iconfont icon-right-arrow"/></view>
+        </picker>
+      </view>
+      <view class="sex-tips">请谨慎填写性别信息，一旦确认不得修改。</view>
+    </view>
+    <view class="form-item">
+      <view class="placeholder">出生日期</view>
+      <picker
+        name="birthday"
+        mode="date"
+        class="form-item-flex-right"
+        bindchange="handleBirthdayChange"
+      >
+        <view wx:if="{{birthday===''}}" class="placeholder">请选择<text class="iconfont icon-right-arrow"/></view>
+        <view wx:if="{{birthday!==''}}">{{birthday}}<text class="iconfont icon-right-arrow"/></view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <view class="placeholder">出生地</view>
+      <picker
+        name="born"
+        mode="region"
+        class="form-item-flex-right"
+        bindchange="handleBornChange"
+      >
+        <view wx:if="{{born===''}}" class="placeholder">请选择<text class="iconfont icon-right-arrow"/></view>
+        <view wx:if="{{born!==''}}">{{born}}<text class="iconfont icon-right-arrow"/></view>
+      </picker>
+    </view>
+    <button class="next-btn" form-type="submit">
+      <text>确认绑定</text>
+      <view wx:if="{{iPhoneX}}" class="empty-placeholder"></view>
+    </button>
+  </form>
+</view>

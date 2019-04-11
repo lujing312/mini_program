@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{msgInfo}}">
+  <view class="title">{{msgInfo.title}}</view>
+  <view class="date">{{msgInfo.date}}</view>
+  <view class="content">{{msgInfo.content}}</view>
+</view>
+<view class="no-data" wx:if="{{!msgInfo}}">
+  <text class="iconfont icon-order"/>
+  <text class="no-data-text">消息内容为空哦</text>
+</view>

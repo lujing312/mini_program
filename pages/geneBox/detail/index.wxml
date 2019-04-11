@@ -1,0 +1,32 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="form-item">
+    <view class="placeholder">与我的关系</view>
+    <view class="form-item-flex-right">{{relationshipInfo.name}}</view>
+  </view>
+  <view class="form-item">
+    <view class="placeholder">昵称</view>
+    <view class="form-item-flex-right">{{nickName}}</view>
+  </view>
+  <view class="form-item" wx:if="{{sexText}}">
+    <view class="placeholder">性别</view>
+    <view class="form-item-flex-right placeholder">{{sexText}}</view>
+  </view>
+  <view class="form-item">
+    <view class="placeholder">姓</view>
+    <view class="form-item-flex-right {{isShare==2 ? 'placeholder' : ''}}">{{surname}}</view>
+  </view>
+  <view class="form-item">
+    <view class="placeholder">名</view>
+    <view class="form-item-flex-right {{isShare==2 ? 'placeholder' : ''}}">{{name}}</view>
+  </view>
+  <view class="form-item">
+    <view class="placeholder">出生日期</view>
+    <view class="form-item-flex-right {{isShare==2 ? 'placeholder' : ''}}">{{birthday}}</view>
+  </view>
+  <view class="form-item">
+    <view class="placeholder">出生地</view>
+    <view class="form-item-flex-right {{isShare==2 ? 'placeholder' : ''}}">{{bornText}}</view>
+  </view>
+  <button class="common-btn" bindtap="handleEdit">修改唾液盒</button>
+</view>

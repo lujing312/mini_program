@@ -1,0 +1,188 @@
+page {
+  background-color: #fff;
+}
+.container {
+  background-color: #fff;
+  padding-bottom: 200rpx;
+}
+.header {
+  height: 320rpx;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #efeff5;
+}
+.header .status-text {
+  font-size: 60rpx;
+  line-height: 84rpx;
+  color: #70aef9;
+  padding-top: 40rpx
+}
+.header .progress {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 40rpx;
+}
+.header .progress-item {
+  width: 160rpx;
+  height: 80rpx;
+  background-color: rgba(1, 114, 101, 0.3);
+  margin-right: 6rpx;
+}
+.header .progress-item:last-child {
+  margin-right: 0;
+}
+.header .progress-active {
+  background-color: #70aef9;
+}
+.address-wrap {
+  padding: 40rpx;
+  border-bottom: 1rpx solid #efeff5;
+  font-size: 32rpx;
+  color: #4a4a4a;
+  line-height: 50rpx;
+}
+.boxNumber-wrap {
+  padding: 40rpx;
+  border-bottom: 1rpx solid #efeff5;
+  font-size: 32rpx;
+  color: #4a4a4a;
+  line-height: 50rpx;
+}
+.boxnumber-text {
+  margin-right: 10rpx;
+}
+.address-wrap .user {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.address-wrap .address {
+  padding-top: 20rpx;
+  word-break: break-all;
+}
+.product-wrap {
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1rpx solid #efeff5;
+}
+.product-wrap .product {
+  display: flex;
+  flex-direction: row;
+}
+.product .img {
+  width: 144rpx;
+  height: 144rpx;
+  background-color: #fff;
+}
+.product .info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+.product .info .title {
+  font-size: 36rpx;
+  color: #4a4a4a;
+  line-height: 56rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+.product .nums {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #9b9b9b;
+}
+.product-wrap .bottom {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20rpx;
+}
+.product-wrap .bottom .remain-price {
+  line-height: 50rpx;
+  font-size: 28rpx;
+}
+.remain-price .bottom .remain-price-text {
+  font-size: 32rpx;
+  color: #9b9b9b;
+}
+.product-wrap .bottom .operate {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.product-wrap .bottom .btn-item {
+  margin-left: 16rpx;
+  margin-right: 0;
+}
+.discount-wrap,
+.order-wrap {
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #efeff5;
+  background-color: #fff;
+  font-size: 30rpx;
+  line-height: 44rpx;
+}
+.discount-wrap .item,
+.order-wrap .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 16rpx 0;
+}
+.item .label {
+  color: #9b9b9b;
+}
+.item .text {
+  color: #484848;
+}
+.discount-wrap .title,
+.order-wrap .title {
+  padding: 20rpx 0;
+}
+.order-wrap .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.order-wrap .title .btn-item {
+  margin-right: 0;
+}
+.discount-list .text,
+.remain .text {
+  color: #70aef9;
+}
+.bottom-wrap {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 88rpx;
+  border-radius: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1rpx solid #efeff5;
+}
+.fix-iphonex {
+  padding-bottom: 68rpx;
+}
+.btn-item {
+  font-size: 28rpx;
+  color: #262628;
+  padding: 4rpx 24rpx;
+  border: 1rpx solid #9b9b9b;
+  border-radius: 32rpx;
+  margin-right: 40rpx;
+}

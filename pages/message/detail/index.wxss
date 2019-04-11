@@ -1,0 +1,26 @@
+page {
+  background-color: #fff;
+}
+.container {
+  background-color: #fff;
+  padding: 40rpx 40rpx 200rpx 40rpx;
+}
+.title {
+  font-size: 32rpx;
+  line-height: 50rpx;
+  color: #4a4a4a;
+}
+.date {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #9b9b9b;
+}
+.content {
+  margin-top: 40rpx;
+  font-size: 28rpx;
+  line-height: 44rpx;
+  font-weight: 300;
+}

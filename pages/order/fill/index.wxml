@@ -1,0 +1,137 @@
+<!--index.wxml-->
+<form bindsubmit="handleSubmit" class="container">
+  <view
+    class="card-wrap"
+    bindtap="handleOpenAddress">
+    <image class="address-img" src="../../../assets/address.png" />
+    <view class="user-info" wx:if="{{location}}">
+      <view class="recipient">{{location.recipient}}</view>
+      <view class="mobile">{{location.mobile}}</view>
+    </view>
+    <view class="address-wrap" wx:if="{{location}}">
+      <text class="text ellipsis">{{location.addressText}}</text>
+      <text class="iconfont icon-right-arrow"/>
+    </view>
+    <view class="no-address" wx:if="{{!location}}">
+      <text class="text">添加地址</text>
+      <text class="iconfont icon-right-arrow"/>
+    </view>
+    <image class="address-img" src="../../../assets/address.png" />
+  </view>
+  <view class="form-title">选择套餐</view>
+  <view class="product-wrap">
+    <view
+      class="item"
+      wx:for="{{productList}}"
+      wx:key="{{item.productId}}"
+      bindtap="handleChooseProduct"
+      data-id="{{item.productId}}">
+      <image class="img" src="{{item.imgUrl}}" />
+      <view class="title">
+        <text class="des">{{item.des}}</text>
+        <text class="tips" wx:if="{{item.tips}}">{{item.tips}}</text>
+      </view>
+      <view class="checkbox">
+        <text wx:if="{{item.selected}}" class="iconfont icon-selected"/>
+        <text wx:if="{{!item.selected}}" class="iconfont icon-unselected"/>
+      </view>
+    </view>
+    <view class="counter-wrap">
+      <view class="discount-tips">
+        <text
+          class="discount-tips-text"
+          wx:if="{{activityDiscount1}}">{{activityDiscount1}}</text>
+        <text
+          class="discount-tips-text"
+          wx:if="{{activityDiscount2}}">{{activityDiscount2}}</text>
+      </view>
+      <view class="counter">
+        <view
+          wx:if="{{count === minCount}}"
+          class="counter-minus disabled"
+        >-</view>
+        <view
+          wx:if="{{count > minCount}}"
+          class="counter-minus"
+          bindtap="handleCountMinus"
+        >-</view>
+        <input
+          class="counter-count"
+          type="number"
+          value="{{count}}"
+          bindblur="handleInputCountChange"
+        />
+        <view
+          wx:if="{{count < maxCount}}"
+          class="counter-plus"
+          bindtap="handleCountPlus"
+        >+</view>
+        <view
+          wx:if="{{count === maxCount}}"
+          class="counter-plus disabled"
+        >+</view>
+      </view>
+    </view>
+    <view class="total-wrap price-wrap" wx:if="{{discountInfo}}">
+      <text class="label">共计：</text>
+      <text class="iconfont icon-yen"></text>
+      <text class="price">{{discountInfo.totalPrice}}</text>
+    </view>
+  </view>
+  <view class="card-wrap discount-wrap">
+    <view class="form-title">优惠信息</view>
+    <view class="form-item">
+      <view class="form-label">优惠码</view>
+      <input
+        name="discountCode"
+        class="form-flex"
+        value="{{discountCode}}"
+        placeholder="请填写优惠码"
+        placeholder-class="placeholder"
+        bindblur="handleSumbitDiscountCode"
+        bindconfirm="handleSumbitDiscountCode"
+      />
+    </view>
+    <view class="form-item coupon-items">
+      <view class="form-label">优惠券</view>
+      <view
+        wx:if="{{discountInfo&&discountInfo.discountIds.length===0}}"
+        class="placeholder form-flex"
+        bindtap="handleOpenSelectCoupon">请选择优惠券</view>
+      <view
+        wx:if="{{discountInfo&&discountInfo.discountIds.length>0}}"
+        class="form-flex"
+        bindtap="handleOpenSelectCoupon">
+        <view class="coupon-name">已优惠{{discountInfo.discountPrice}}元</view>
+      </view>
+      <text class="iconfont icon-right-arrow"/>
+    </view>
+    <view class="form-item">
+      <view class="form-label">备注</view>
+      <input
+        name="remark"
+        class="form-flex"
+        placeholder="选填"
+        placeholder-class="placeholder"
+      />
+    </view>
+    <view class="total-wrap price-wrap" wx:if="{{discountInfo.couponPrice}}">
+      <text class="label">为你节省了：</text>
+      <text class="iconfont icon-yen"></text>
+      <text class="price">{{discountInfo.couponPrice}}</text>
+    </view>
+    <view class="protocol-wrap">
+      <text>顺丰包邮</text>
+      <text bindtap="handleOpenProtocol">下单即视为接受<text class="protocol">《服务协议》</text></text>
+    </view>
+  </view>
+  <view class="submit-wrap {{iPhoneX ? 'fix-iphonex' : ''}}">
+    <view class="total-price price-wrap">
+      <text class="label">实付：</text>
+      <text class="iconfont icon-yen"></text>
+      <text wx:if="{{discountInfo}}" class="price">{{discountInfo.remainPrice}}</text>
+      <text wx:if="{{!discountInfo}}" class="price">0</text>
+    </view>
+    <button class="wechat-pay" form-type="submit">微信支付</button>
+  </view>
+</form>

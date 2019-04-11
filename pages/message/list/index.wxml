@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{msgList.length>0}}">
+  <view
+    class="list-item"
+    wx:for="{{msgList}}"
+    wx:for-index="mIdx"
+    wx:for-item="mItem"
+    wx:key="{{mIdx}}"
+    data-read="{{mItem.isRead}}"
+    data-id="{{mItem.id}}"
+    bindtap="handleOpenDetail"
+  >
+    <view class="info">
+      <view class="dot {{mItem.isRead ? 'dot-disabled' : ''}}"></view>
+      <view class="title {{mItem.isRead ? 'title-disabled' : ''}}">{{mItem.title}}</view>
+    </view>
+    <view class="date">{{mItem.date}}</view>
+  </view>
+</view>
+<view class="no-data" wx:if="{{msgList.length===0}}">
+  <text class="iconfont icon-message-no-data"/>
+  <text class="no-data-text">还没有消息</text>
+</view>

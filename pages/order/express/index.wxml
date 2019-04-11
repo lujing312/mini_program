@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{list.length>0}}">
+  <view class="list-wrap">
+    <view
+      class="list-item"
+      wx:for="{{list}}"
+      wx:key="{{index}}"
+    >
+      <view class="datetime">
+        <view>{{item.date}}</view>
+        <view>{{item.time}}</view>
+      </view>
+      <view class="detail">{{item.context}}</view>
+    </view>
+  </view>
+</view>
+<view class="no-data" wx:if="{{list.length===0}}">
+  <text class="iconfont icon-order"/>
+  <text class="no-data-text">还没有物流信息哦</text>
+</view>

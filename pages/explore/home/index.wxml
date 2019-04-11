@@ -1,0 +1,47 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <swiper
+    wx:if="{{articleInfo.carousel.length>0}}"
+    class="swiper"
+    previous-margin="40rpx"
+    next-margin="40rpx"
+    autoplay
+    circular>
+    <swiper-item
+      class="swiper-item"
+      wx:for="{{articleInfo.carousel}}"
+      wx:key="{{index}}"
+      data-type="webview"
+      data-link="{{item.link}}"
+      bindtap="handleOpenWebView"
+    >
+      <view class="card">
+        <image wx:if="{{item.imgUrl}}" class="img" src="{{item.imgUrl}}"></image>
+      </view>
+    </swiper-item>
+  </swiper>
+  <view
+    wx:if="{{articleInfo.article.length>0}}"
+    class="banner-wrap"
+    wx:for="{{articleInfo.article}}"
+    wx:key="{{index}}"
+    data-type="{{item.tag===1 ? 'native' : 'webview'}}"
+    data-link="{{item.link}}"
+    bindtap="handleOpenWebView"
+  >
+    <view class="title">{{item.title}}</view>
+    <image class="banner" src="{{item.imgUrl}}"/>
+  </view>
+</view> -->
+<!-- <view
+  wx:if="{{showDownload}}"
+  class="dl-wrap"
+  bindtap="handleOpenDownload"
+>
+  <image class="dl-img" src="https://static.genebox.cn/explore/download.png" />
+  <view class="dl-btn-wrap">
+    <view class="dl-btn">下载APP</view>
+  </view>
+  <text catchtap="handleCloseDownload" class="iconfont icon-close" />
+</view> -->
+<web-view src="https://static.genebox.cn/static/article/sample_collection_v2.html"></web-view>
